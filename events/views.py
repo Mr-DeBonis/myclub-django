@@ -6,7 +6,7 @@ from django.shortcuts import render
 
 
 # Create your views here.
-def home(request, year, month):
+def home(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
     name = "John"
     month = month.title()
     # Convert month from name to number
