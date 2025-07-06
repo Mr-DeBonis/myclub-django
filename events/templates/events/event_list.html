@@ -2,31 +2,27 @@
 
 {% block content %}
     <h1>Events</h1>
-    <br>
     {% for event in event_list %}
-        <div class="card">
+        <div class="card my-4">
             <div class="card-header">
                 {{ event }}
             </div>
             <div class="card-body">
                 <h5 class="card-title">Venue: {{ event.venue }}</h5>
-                <p class="card-text">
-                    <ul>
-                        <li>Date: {{ event.event_date }}</li>
-                        <li>Venue Website: {{ event.venue.web }}</li>
-                        <li>Manager: {{ event.manager }}</li>
-                        <li>Description: {{ event.description }}</li>
-                        <li>Attendees:</li>
-                        {% for user in event.attendees.all %}
-                            <ul>
-                                <li>{{ user }}</li>
-                            </ul>
-                        {% endfor %}
-                    </ul>
-                </p>
+                <ul>
+                    <li>Date: {{ event.event_date }}</li>
+                    <li>Venue Website: {{ event.venue.web }}</li>
+                    <li>Manager: {{ event.manager }}</li>
+                    <li>Description: {{ event.description }}</li>
+                    <li>Attendees:</li>
+                    {% for user in event.attendees.all %}
+                        <ul>
+                            <li>{{ user }}</li>
+                        </ul>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
-        <br>
     {% endfor %}
 
 

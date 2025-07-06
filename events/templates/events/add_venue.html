@@ -1,17 +1,18 @@
 {% extends 'events/base.html' %}
 
 {% block content %}
-    <center>
+    <div class="text-center">
         <h1>Add Venue To Database</h1>
-        <br><br>
-        {% if submitted %}
-            Your Venue Was Submitted Succesfully!!!
-        {% else %}
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" class="btn btn-secondary" value="Submit">
-            </form>
-        {% endif %}
-    </center>
+        <div class="my-5">
+            {% if submitted %}
+                Your Venue Was Submitted Succesfully!!!
+            {% else %}
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" class="btn btn-secondary" value="Submit">
+                </form>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

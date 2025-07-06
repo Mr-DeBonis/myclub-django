@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from events.forms import VenueForm
-from events.models import Event
+from events.models import Event, Venue
 
 
 # Create your views here.
@@ -59,3 +59,14 @@ def add_venue(request):
         'submitted': submitted,
     }
     return render(request, 'events/add_venue.html', context=context)
+
+
+def list_venues(request):
+    venue_list = Venue.objects.all()
+    return render(request, 'events/venue.html', {'venue_list': venue_list})
+
+
+def show_venue(request, venue_id):
+    venue = Venue.objects.get(pk=venue_id)
+
+    return render(request, 'events/show_venue.html', {'venue': venue})
