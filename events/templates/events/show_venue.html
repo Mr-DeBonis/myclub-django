@@ -12,6 +12,12 @@
                 <li>{{ venue.email_address }}</li>
                 <li><a href="{{ venue.web }}">{{ venue.web }}</a></li>
             </ul>
+            
+            {% if venue.venue_image %}
+                <div class="text-center">
+                    <img src="{{ venue.venue_image.url }}" alt="" width=500>
+                </div>
+            {% endif %} 
         </div>
     </div>
 {% endblock %}
