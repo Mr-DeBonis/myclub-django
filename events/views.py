@@ -1,9 +1,13 @@
 import calendar
+import io
 from calendar import HTMLCalendar
 from datetime import datetime
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, FileResponse
 from django.shortcuts import render
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.units import inch
+from reportlab.pdfgen import canvas
 
 from events.forms import VenueForm
 from events.models import Event, Venue
@@ -70,3 +74,36 @@ def show_venue(request, venue_id):
     venue = Venue.objects.get(pk=venue_id)
 
     return render(request, 'events/show_venue.html', {'venue': venue})
+
+def venue_pdf(request):
+    buf = io.BytesIO()
+    c = canvas.Canvas(buf, pagesize=letter, bottomup=0)
+    textObj = c.beginText()
+    textObj.setTextOrigin(inch, inch)
+    textObj.setFont("Helvetica", 14)
+
+    venues = Venue.objects.all()
+    lines = []
+
+    for venue in venues:
+        lines.append(venue.name)
+        lines.append(venue.address)
+        lines.append(venue.zip_code)
+        lines.append(venue.phone)
+        lines.append(venue.web)
+        lines.append(venue.email_address)
+        lines.append(" ")
+
+    for line in lines:
+        textObj.textLine(line)
+
+    c.drawText(textObj)
+    c.showPage()
+    c.save()
+    buf.seek(0)
+
+    return FileResponse(buf, as_attachment=True, filename='venue.pdf')
+
+
+
+    pass
