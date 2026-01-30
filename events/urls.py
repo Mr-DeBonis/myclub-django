@@ -17,5 +17,6 @@ urlpatterns = [
     path('list_venues', views.list_venues, name="list-venues"),
     path('show_venue/<venue_id>', views.show_venue, name="show-venue"),
     path('venue_pdf', views.venue_pdf, name="venue_pdf"),
+    path('venue_pdf2', views.venue_pdf2, name="venue_pdf2"),
 
 ]

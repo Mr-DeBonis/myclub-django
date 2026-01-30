@@ -42,3 +42,8 @@ python manage.py shell
 python manage.py test events
 
 ```
+
+# PDF generation
+It uses [z3c.rml](https://github.com/zopefoundation/z3c.rml) to generate pdfs from templates.
+* [z3c.RML reference](https://raw.githubusercontent.com/zopefoundation/z3c.rml/refs/heads/master/src/z3c/rml/rml-reference.pdf)
+* [RML official docs](https://docs.reportlab.com/rmlfornewbies/)

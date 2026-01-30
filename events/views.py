@@ -5,9 +5,11 @@ from datetime import datetime
 
 from django.http import HttpResponseRedirect, FileResponse
 from django.shortcuts import render
+from django.template.loader import render_to_string
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
+from z3c.rml import rml2pdf
 
 from events.forms import VenueForm
 from events.models import Event, Venue
@@ -105,5 +107,15 @@ def venue_pdf(request):
     return FileResponse(buf, as_attachment=True, filename='venue.pdf')
 
 
+def venue_pdf2(request):
+    venues = Venue.objects.all()
 
-    pass
+    context = {
+        "banana": "patata",
+        "venues": venues
+    }
+    rml_string = render_to_string('events/venue_table.rml', context)
+
+    pdf_buffer = rml2pdf.parseString(rml_string)
+
+    return FileResponse(pdf_buffer, as_attachment=True, filename='venue2.pdf')

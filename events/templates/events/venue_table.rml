@@ -1,0 +1,108 @@
+<!DOCTYPE document SYSTEM "rml.dtd">
+<document filename="example_01.pdf">
+    <template showBoundary="0">
+        <pageTemplate id="main">
+            <pageGraphics>
+                <setFont name="Helvetica-Bold" size="20"/>
+                <drawString x="0.68in" y="770">Control de Despacho</drawString>
+            </pageGraphics>
+            <frame id="first" x1="0.68in" y1="1in" width="7.14in" height="9in"/>
+        </pageTemplate>
+    </template>
+    <stylesheet>
+        <blockTableStyle id="Tablaprincipal">
+            <lineStyle kind="GRID" colorName="black" thickness="1"/>
+            <blockAlignment value="CENTER"/>
+            <blockFont name="Helvetica-Bold" size="10" start="0,0" stop="-1,0"/>
+            <blockBackground colorName="silver" start="0,0" stop="-1,0"/>
+            <blockBottomPadding length="5"/>
+        </blockTableStyle>
+        <paraStyle name="TableText" fontName="Helvetica" fontSize="9" leading="11"/>
+        <paraStyle name="DatosGenerales" fontName="Helvetica" fontSize="10" spaceAfter="10"/>
+        <paraStyle name="Totales" fontName="Helvetica-Bold" fontSize="12" alignment="RIGHT" spaceBefore="20"/>
+    </stylesheet>
+    <story>
+        <para>
+            <b>Fecha:</b> 21/01/2026 10:00
+        </para>
+        <para>
+            <b>Creado por:</b> usuario A
+        </para>
+        <para>
+            <b>Transporte:</b> SODITRA
+        </para>
+        <para>
+            <b>Notas:</b> Mis notas
+        </para>
+        <para>
+            <b>Detalle Documentos:</b>
+        </para>
+        <spacer length="15"/>
+
+        <blockTable style="Tablaprincipal" colWidths="0.8in, 1.35in, 1.85in, 1.0in, 1.54in, 0.6in">
+            <tr>
+                <td><para>Folio</para></td>
+                <td><para>Cliente</para></td>
+                <td><para>Dirección</para></td>
+                <td><para>Comuna</para></td>
+                <td><para>Instrucciones</para></td>
+                <td><para>Bultos</para></td>
+            </tr>
+            <tr>
+                <td><para>1166379</para></td>
+                <td><para>POLICIA DE INVESTIGACIONES DE CHILE</para></td>
+                <td><para>ROSAS 1407 BIPE METROPOLITANA POLICIA DE INVESTIGACIONES DE CHILE COD</para></td>
+                <td><para>SANTIAGO</para></td>
+                <td><para>. Entregar a: edgardo rodriguez Fono : 974185460</para></td>
+                <td><para>1</para></td>
+            </tr>
+            <tr>
+                <td><para>1166384</para></td>
+                <td><para>BANCO BICE</para></td>
+                <td><para>NUEVA COSTANERA 3768 BANCO BICE</para></td>
+                <td><para>VITACURA</para></td>
+                <td><para>. Entregar a: JUAN NAVARRETE Fono : 226922000</para></td>
+                <td><para>1</para></td>
+            </tr>
+            <tr>
+                <td><para>1166381</para></td>
+                <td><para>OMESA SPA</para></td>
+                <td><para>AV EL BOSQUE NORTE 0110,piso 2,OFICINA ENFERMERAS PABELLON</para></td>
+                <td><para>LAS CONDES</para></td>
+                <td><para>Francheska Mandriaza Saavedra/56975583634</para></td>
+                <td><para>1</para></td>
+            </tr>
+            <tr>
+                <td><para>1166307</para></td>
+                <td><para>TANNER BANCO DIGITAL</para></td>
+                <td><para>EL GOLF 40 PISO 9, OFICINA 902</para></td>
+                <td><para>LAS CONDES</para></td>
+                <td><para>982931157-Juan Espejo-juan.espejo@tanner.cl</para></td>
+                <td><para>2</para></td>
+            </tr>
+            <tr>
+                <td><para>1166383</para></td>
+                <td><para>ITALMOD S A</para></td>
+                <td><para>AV. RICARDO LYON 155, LOCAL 213</para></td>
+                <td><para>PROVIDENCIA</para></td>
+                <td><para>. Entregar a: Isvania Sandoval Fono : 232749703</para></td>
+                <td><para>3</para></td>
+            </tr>
+            <tr>
+                <td><para>1166466</para></td>
+                <td><para>IANSAGRO S A</para></td>
+                <td><para>ROSARIO NORTE 615 P.23</para></td>
+                <td><para>LAS CONDES</para></td>
+                <td><para>992212243-Cristian Urbina o José Pávez-curbina@iansa.cl</para></td>
+                <td><para>2</para></td>
+            </tr>
+        </blockTable>
+        <spacer length="20"/>
+        <para>
+            <b>Total Documentos:</b> 3
+        </para>
+        <para>
+            <b>Total Bultos:</b> 7
+        </para>
+    </story>
+</document>
